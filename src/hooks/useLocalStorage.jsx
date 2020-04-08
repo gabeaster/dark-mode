@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+//4a. import useState from react
+import { useState } from "react";
 
 //1. setup a function called useLocalStorage
 //1. add key and initialValue as parameters to the hook
@@ -16,8 +17,16 @@ const useLocalStorage = (key, initialValue) => {
         return item ? JSON.parse(item) : initialValue; 
     });
 
-    //return the storedValue from this hook in an array
-    return [storedValue];
+    //5. create a setter function and return that in the array with the storedValue
+    const setValue = value => {
+        //save the state for React
+        setStoredValue(value);
+        //save the value to the local storage
+        window.localStorage.setItem(key, JSON.stringify(value));
+    };
+
+    //4b. return the storedValue from this hook in an array
+    return [storedValue, setValue];
 }
 
 export default useLocalStorage;
