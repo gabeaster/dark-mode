@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+//step 3: 1. import dark mode hook into navBar component
+import useDarkMode from '../hooks/useDarkMode';
 
 //functional Navbar component
 const Navbar = () => {
 
   //state for darkMode with state being defaulted to false
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useDarkMode('false');
 
 
   //toggle function passing an event as an argument; 
