@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 
+//functional Navbar component
 const Navbar = () => {
+
+  //state for darkMode with state being defaulted to false
   const [darkMode, setDarkMode] = useState(false);
+
+
+  //toggle function passing an event as an argument; 
   const toggleMode = e => {
+    //  prevent default prevents rerender.
     e.preventDefault();
+    //setDarkMode will toggle state to the opposite of it's current state
     setDarkMode(!darkMode);
   };
+
+  //component returns a navbar with an h1, a div for the toggle that when clicked will toggle darkmode
   return (
     <nav className="navbar">
       <h1>Crypto Tracker</h1>
