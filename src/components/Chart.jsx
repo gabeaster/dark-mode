@@ -9,8 +9,11 @@ import {
   Tooltip
 } from "recharts";
 
+//Chart is a funcitonal component being passed sparlineData as props from Charts.jsx
 const Chart = ({ sparklineData }) => {
+  //setting a variable formattedData to be sparklineData
   const formattedData = sparklineData
+    //mapping through the data passing the price and idx as arguments
     .map((price, idx) => {
       if (idx % 6 === 0) {
         const timeToSubtract = 168 - idx;
@@ -27,6 +30,7 @@ const Chart = ({ sparklineData }) => {
     .filter(data => data);
 
   return (
+    //chart components being imported from recharts
     <LineChart width={1100} height={300} data={formattedData}>
       <Line type="monotone" dataKey="value" stroke="#8884d8" />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
